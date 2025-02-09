@@ -46,7 +46,7 @@ app.get('/books', (req, res) => {
     res.render('books', { books });
   });
 });
-
+// Show one book
 app.get('/book/:id', (req, res) => {
   const id = req.params.id;
 
@@ -62,7 +62,7 @@ app.get('/book/:id', (req, res) => {
     res.render('book', { book });
   });
 });
-
+// Select data from edit
 app.get('/books/edit/:id', (req, res) => {
   const id = req.params.id;
 
@@ -79,6 +79,28 @@ app.get('/books/edit/:id', (req, res) => {
   });
 
 
+});
+// Edit book
+app.post('/books/updatedbook', (req, res) => {
+  const { id, title, pagesqty, bookauthor, booksin } = req.body;
+
+  const sqlQuery = `
+    UPDATE books SET 
+      title = '${title}', 
+      pagesqty = ${pagesqty}, 
+      bookauthor = '${bookauthor}', 
+      booksin = '${booksin}' 
+    WHERE id = ${id}
+  `;
+
+  connection.query(sqlQuery, (err) => {
+    if(err) {
+      console.log(err);
+      return;
+    }
+
+    res.render('edit');
+  });
 });
 
 const connection = mysql.createConnection({
