@@ -199,3 +199,19 @@ h2 {
   line-height: 1.6;
   margin-top: 10px;
 }
+
+.actions a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+  text-align: center;
+}
+
+.actions a:hover {
+  background-color: #007bff;
+}

@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Edite o seu livro:</h1>
+
+    <form action="" method="POST">
+        <div class="form-control">
+            <label for="title">Título do livro:</label>
+            <input type="text" name="title" id="title" placeholder="Título do livro" value="{{book.title}}">
+        </div>
+
+        <div class="form-control">
+            <label for="pagesqty">Número de páginas:</label>
+            <input type="number" name="pagesqty" id="pagesqty" placeholder="Quantidade de páginas do livro" value="{{book.pagesqty}}">
+        </div>
+
+        <div class="form-control">
+            <label for="bookauthor">Autor do livro:</label>
+            <input type="text" name="bookauthor" id="bookauthor" placeholder="Quem é o autor do livro?" value="{{book.bookauthor}}">
+        </div>
+
+        <div class="form-control">
+            <label for="booksin">Breve Resumo:</label>
+            <textarea name="booksin" id="booksin" placeholder="Escreva um breve resumo..." value="{{book.booksin}}"></textarea>
+        </div>
+
+        <input type="submit" value="Editar">
+    </form>
+</div>

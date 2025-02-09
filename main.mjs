@@ -63,6 +63,24 @@ app.get('/book/:id', (req, res) => {
   });
 });
 
+app.get('/books/edit/:id', (req, res) => {
+  const id = req.params.id;
+
+  const sqlQuery = `SELECT * FROM books WHERE id = ${id}`;
+
+  connection.query(sqlQuery, (err, data) => {
+    if(err) {
+      console.log(err);
+      return;
+    }
+
+    const book = data[0];
+    res.render('editbook', { book });
+  });
+
+
+});
+
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
