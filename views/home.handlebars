@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Cadastre o seu livro:</h1>
+
+    <form action="/books/insertbook" method="POST">
+        <div class="form-control">
+            <label for="title">Título do livro:</label>
+            <input type="text" name="title" id="title" placeholder="Título do livro">
+        </div>
+
+        <div class="form-control">
+            <label for="pagesqty">Número de páginas:</label>
+            <input type="number" name="pagesqty" id="pagesqty" placeholder="Quantidade de páginas do livro">
+        </div>
+
+        <div class="form-control">
+            <label for="bookauthor">Autor do livro:</label>
+            <input type="text" name="bookauthor" id="bookauthor" placeholder="Quem é o autor do livro?">
+        </div>
+
+        <div class="form-control">
+            <label for="booksin">Breve Resumo:</label>
+            <textarea name="booksin" id="booksin" placeholder="Escreva um breve resumo..."></textarea>
+        </div>
+
+        <input type="submit" value="Enviar">
+    </form>
+</div>
