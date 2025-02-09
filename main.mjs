@@ -30,7 +30,7 @@ app.post('/books/insertbook', (req, res) => {
       return;
     }
 
-    res.redirect('/');
+    res.render('sucesso');
     console.log('Dados inseridos com sucesso.');
   });
 });
