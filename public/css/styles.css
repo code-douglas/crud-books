@@ -167,7 +167,6 @@ input[type="submit"]:hover {
 }
 
 h1 {
-  font-size: 26px;
   color: #222;
   margin-bottom: 15px;
   text-align: center;
@@ -198,24 +197,50 @@ h2 {
   color: #444;
   line-height: 1.6;
   margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.actions a,
+.actions form input {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .actions a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #0056b3;
+  background-color: #1e40af;
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: background 0.3s ease-in-out;
-  text-align: center;
+  border: none;
+  padding: 10px 35px;
+
+}
+
+.actions form input {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+
 }
 
 .actions a:hover {
-  background-color: #007bff;
+  background-color: #172554;
 }
 
+.actions form input:hover {
+  background-color: #1d4ed8;
+}
 .container-sucess {
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
