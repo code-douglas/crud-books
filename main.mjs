@@ -114,7 +114,7 @@ app.post('/books/remove/:id', (req, res) => {
       return;
     }
 
-    res.redirect('/books');
+    res.render('delete');
   });
 
 });

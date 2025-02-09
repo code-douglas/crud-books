@@ -68,6 +68,5 @@ npm run start
 ![Print 9](/public/ignore/Captura%20de%20tela%20de%202025-02-09%2013-16-50.png)
 ![Print 10](/public/ignore/Captura%20de%20tela%20de%202025-02-09%2013-17-00.png)
 ![Print 11](/public/ignore/Captura%20de%20tela%20de%202025-02-09%2013-17-13.png)
+![Print 12](/public/ignore/2.png)
 ![Print 12](/public/ignore/Captura%20de%20tela%20de%202025-02-09%2013-17-18.png)
-
-
