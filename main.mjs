@@ -1,6 +1,6 @@
 import express from 'express';
 import exphbs from 'express-handlebars';
-import mysql from 'mysql2';
+import pool from './db/connection.mjs';
 import 'dotenv/config';
 
 const app = express();
@@ -24,7 +24,7 @@ app.post('/books/insertbook', (req, res) => {
     VALUES ('${title}', ${pagesqty}, '${bookauthor}', '${booksin}')
   `;
 
-  connection.query(sqlQuery, (err) => {
+  pool.query(sqlQuery, (err) => {
     if(err) {
       console.log(err);
       return;
@@ -37,7 +37,7 @@ app.post('/books/insertbook', (req, res) => {
 // Select/Rescue data in database
 app.get('/books', (req, res) => {
   const sqlQuery = 'SELECT * FROM books';
-  connection.query(sqlQuery, (err, data) => {
+  pool.query(sqlQuery, (err, data) => {
     if(err) {
       console.log(err);
       return;
@@ -52,7 +52,7 @@ app.get('/book/:id', (req, res) => {
 
   const sqlQuery = `SELECT * FROM books WHERE id = ${id}`;
 
-  connection.query(sqlQuery, (err, data) => {
+  pool.query(sqlQuery, (err, data) => {
     if(err) {
       console.log(err);
       return;
@@ -68,7 +68,7 @@ app.get('/books/edit/:id', (req, res) => {
 
   const sqlQuery = `SELECT * FROM books WHERE id = ${id}`;
 
-  connection.query(sqlQuery, (err, data) => {
+  pool.query(sqlQuery, (err, data) => {
     if(err) {
       console.log(err);
       return;
@@ -93,7 +93,7 @@ app.post('/books/updatedbook', (req, res) => {
     WHERE id = ${id}
   `;
 
-  connection.query(sqlQuery, (err) => {
+  pool.query(sqlQuery, (err) => {
     if(err) {
       console.log(err);
       return;
@@ -108,7 +108,7 @@ app.post('/books/remove/:id', (req, res) => {
 
   const sqlQuery = `DELETE FROM books WHERE id = ${id}`;
 
-  connection.query(sqlQuery, (err) => {
+  pool.query(sqlQuery, (err) => {
     if(err) {
       console.log(err);
       return;
@@ -119,22 +119,4 @@ app.post('/books/remove/:id', (req, res) => {
 
 });
 
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
-});
-
-connection.connect((err) => {
-  if(err) {
-    console.log(`Connection error: ${err}`);
-    return;
-  }
-
-  console.log('Connected to MySQL');
-
-  app.listen(3000, () => {
-    console.log('Server started on http://localhost:3000');
-  });
-});
+app.listen(3000);
