@@ -1,7 +1,6 @@
 import express from 'express';
 import exphbs from 'express-handlebars';
 import pool from './db/connection.mjs';
-import 'dotenv/config';
 
 const app = express();
 
